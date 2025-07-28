@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+.headerDiv {
+  background-color: #3646aa;
+  height: 7.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchDiv {
+  background-color: white;
+  width: 30%;
+  height: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.searchInput {
+  outline: none;
+  border: none;
+  height: 100%;
+  width: 90%;
+}
+.searchIcon {
+  cursor: pointer;
+  padding: 5px;
+  height: 100%;
+  width: 10%;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
