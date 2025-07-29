@@ -9,6 +9,7 @@ body {
 
 header {
   background-color: #3646aa;
+  margin-bottom: 10px;
 }
 
 .formElem {
@@ -40,6 +41,7 @@ header {
 .iconButton {
   position: absolute;
   left: 5px;
+  top: 7px;
   background: none;
   border: none;
   padding: 0;

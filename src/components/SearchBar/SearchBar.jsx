@@ -1,21 +1,23 @@
 import { toast, Toaster } from "react-hot-toast";
-import { FaSearch } from "react-icons/fa"; // Mercek ikonu
+import { FaSearch } from "react-icons/fa";
 import style from "./SearchBar.module.css";
+import { useState } from "react";
 
 const SearchBar = ({ onSubmit }) => {
-  const notify = () =>
+  const [inputValue, setInputValue] = useState("");
+  const notify = () => {
     toast.error("Please enter a word!", {
       duration: 750,
     });
-
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const value = e.target.elements.query.value.trim();
-    if (value === "") {
+    if (inputValue === "") {
       notify();
       return;
     }
-    onSubmit(value);
+    onSubmit(inputValue);
+    setInputValue("");
   };
 
   return (
@@ -26,12 +28,16 @@ const SearchBar = ({ onSubmit }) => {
             <FaSearch className={style.searchIcon} />
           </button>
           <input
+            value={inputValue}
             name="query"
             type="text"
             className={style.searchInput}
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
+            onChange={(e) => {
+              setInputValue(e.target.value);
+            }}
           />
         </div>
         <button type="submit" className={style.submitButton}>
