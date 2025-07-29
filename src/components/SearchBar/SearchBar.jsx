@@ -12,11 +12,11 @@ const SearchBar = ({ onSubmit }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue === "") {
+    if (inputValue.trim() === "") {
       notify();
       return;
     }
-    onSubmit(inputValue);
+    onSubmit(inputValue.trim());
     setInputValue("");
   };
 
@@ -29,7 +29,6 @@ const SearchBar = ({ onSubmit }) => {
           </button>
           <input
             value={inputValue}
-            name="query"
             type="text"
             className={style.searchInput}
             autoComplete="off"

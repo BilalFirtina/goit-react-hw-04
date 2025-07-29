@@ -3,7 +3,7 @@ const Loader = () => {
   return (
     <div>
       <PacmanLoader
-        cssOverride={{ margin: "250px auto" }}
+        cssOverride={{ margin: "auto" }}
         color="#3646aa"
         size={50}
       />
