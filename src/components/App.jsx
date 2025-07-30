@@ -56,6 +56,7 @@ const App = () => {
             },
           }
         );
+        console.log(response);
         setData((prevData) =>
           page === 1
             ? response.data.results
@@ -71,6 +72,7 @@ const App = () => {
     };
     request();
   }, [query, page]);
+
   return (
     <>
       <SearchBar onSubmit={handleSearch} />
