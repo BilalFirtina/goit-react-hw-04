@@ -32,11 +32,8 @@ const ImageModal = ({ modalIsOpen, closeModal, image }) => {
         src={image.urls.regular}
         alt={image.alt_description}
         style={{
-          display: "block",
-          maxWidth: "90vw",
-          maxHeight: "90vh",
-          width: "auto",
-          height: "auto",
+          width: "50vw",
+          height: "80vh",
         }}
       />
     </Modal>
