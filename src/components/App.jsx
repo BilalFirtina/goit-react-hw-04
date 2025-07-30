@@ -56,7 +56,6 @@ const App = () => {
             },
           }
         );
-        console.log(response);
         setData((prevData) =>
           page === 1
             ? response.data.results
