@@ -34,6 +34,7 @@ const ImageModal = ({ modalIsOpen, closeModal, image }) => {
         style={{
           width: "50vw",
           height: "80vh",
+          borderRadius: "20px",
         }}
       />
     </Modal>
