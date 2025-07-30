@@ -23,9 +23,6 @@ const customStyles = {
 };
 
 const ImageModal = ({ modalIsOpen, closeModal, image }) => {
-  if (!image) {
-    return null;
-  }
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -33,24 +30,24 @@ const ImageModal = ({ modalIsOpen, closeModal, image }) => {
       style={customStyles}
       contentLabel="Image Modal"
     >
-      <img
-        src={image.urls.regular}
-        alt={image.alt_description}
-        style={{
-          width: "60vw",
-          height: "80vh",
-          borderRadius: "20px",
-        }}
-      />
-      {
-        <div style={{ borderRadius: "20px" }}>
-          <h1 style={{ margin: "0", color: "white", textAlign: "center" }}>
-            Photograph Information
-          </h1>
-          <ul style={{ margin: "0", listStyle: "circle" }}>
-            <li style={{ color: "white", fontSize: "20px" }}>
-              Instagram Account:{" "}
-              {
+      {!image ? null : (
+        <>
+          <img
+            src={image.urls.regular}
+            alt={image.alt_description || "Photograph"}
+            style={{
+              width: "60vw",
+              height: "80vh",
+              borderRadius: "20px",
+            }}
+          />
+          <div style={{ borderRadius: "20px" }}>
+            <h1 style={{ margin: "0", color: "white", textAlign: "center" }}>
+              Photograph Information
+            </h1>
+            <ul style={{ margin: "0", listStyle: "circle" }}>
+              <li style={{ color: "white", fontSize: "20px" }}>
+                Instagram Account:{" "}
                 <span
                   style={{
                     fontWeight: "bold",
@@ -59,11 +56,9 @@ const ImageModal = ({ modalIsOpen, closeModal, image }) => {
                 >
                   {image.user.instagram_username || "Undefined"}
                 </span>
-              }
-            </li>
-            <li style={{ color: "white", fontSize: "20px" }}>
-              Likes:{" "}
-              {
+              </li>
+              <li style={{ color: "white", fontSize: "20px" }}>
+                Likes:{" "}
                 <span
                   style={{
                     fontWeight: "bold",
@@ -72,19 +67,22 @@ const ImageModal = ({ modalIsOpen, closeModal, image }) => {
                 >
                   {image.likes}
                 </span>
-              }
-            </li>
-            <li style={{ color: "white", fontSize: "20px" }}>
-              Created Date:{" "}
-              <span
-                style={{ fontWeight: "bold", color: "rgba(235, 51, 235, 1)" }}
-              >
-                {new Date(image.created_at).toLocaleString()}
-              </span>
-            </li>
-          </ul>
-        </div>
-      }
+              </li>
+              <li style={{ color: "white", fontSize: "20px" }}>
+                Created Date:{" "}
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: "rgba(235, 51, 235, 1)",
+                  }}
+                >
+                  {new Date(image.created_at).toLocaleString("tr-TR")}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </>
+      )}
     </Modal>
   );
 };
