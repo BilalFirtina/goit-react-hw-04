@@ -76,7 +76,7 @@ const ImageModal = ({ modalIsOpen, closeModal, image }) => {
                     color: "rgba(235, 51, 235, 1)",
                   }}
                 >
-                  {new Date(image.created_at).toLocaleString("tr-TR")}
+                  {new Date(image.created_at).toLocaleString()}
                 </span>
               </li>
             </ul>
